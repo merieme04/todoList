@@ -1,0 +1,19 @@
+<div class="flex flex-row justify-between py-2 ">
+  <div class="flex flex-row gap-4">
+    <div [ngStyle]="{'background-color': backgroundColor}" class="w-1 rounded-sm">
+    </div>
+    <div class="flex flex-col">
+      <span [ngClass]="{'line-through': task.done}">
+        {{ task.name }}
+      </span>
+      <div class="text-xs text-gray-200 font-normal">
+        {{ task.description }}
+      </div>
+    </div>
+  </div>
+  <!-- Bouton pour changer l'état de la tâche -->
+  <button (click)="toggleTaskStatus()" class="p-2">
+    <mat-icon *ngIf="task.done" class="text-green-500 text-3xl px-7">toggle_on</mat-icon> <!-- Icône pour "fait" -->
+    <mat-icon *ngIf="!task.done" class="text-blue-500 text-3xl px-7 ">toggle_off</mat-icon> <!-- Icône pour "non fait" -->
+  </button>
+</div>
